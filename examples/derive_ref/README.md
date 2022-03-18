@@ -22,11 +22,9 @@ Let's start by breaking down the anatomy of the derive attributes:
 ```rust
 use clap::{Parser, Args, Subcommand, ArgEnum};
 
-/// Doc comment
 #[derive(Parser)]
 #[clap(APP ATTRIBUTE)]
 struct Cli {
-    /// Doc comment
     #[clap(ARG ATTRIBUTE)]
     field: Type,
 
@@ -37,37 +35,29 @@ struct Cli {
     command: Command,
 }
 
-/// Doc comment
 #[derive(Args)]
 #[clap(PARENT APP ATTRIBUTE)]
 struct Struct { 
-    /// Doc comment
     #[clap(ARG ATTRIBUTE)]
     field: Type,
 }
 
-/// Doc comment
 #[derive(Subcommand)]
 #[clap(PARENT APP ATTRIBUTE)]
 enum Command {
-    /// Doc comment
     #[clap(APP ATTRIBUTE)]
     Variant1(Struct),
 
-    /// Doc comment
     #[clap(APP ATTRIBUTE)]
     Variant2 {
-        /// Doc comment
         #[clap(ARG ATTRIBUTE)]
         field: Type,
     }
 }
 
-/// Doc comment
 #[derive(ArgEnum)]
 #[clap(ARG ENUM ATTRIBUTE)]
 enum Mode {
-    /// Doc comment
     #[clap(POSSIBLE VALUE ATTRIBUTE)]
     Variant1,
 }
